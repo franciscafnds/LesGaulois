@@ -9,7 +9,7 @@ public class Romain {
 		this.force = force;
 	}
 
-	public string getNom() {
+	public String getNom() {
 		return nom;
 	}
 
@@ -30,8 +30,23 @@ public class Romain {
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+		return "Romain [nom=" +nom + ", force=" + force + "]";
+				
+	}
 
 	public static void main(String[] args) {
+		// Verification de prendreParole
+		Romain minus =  new Romain ("Minus", 5);
+		System.out.println(minus);
+		
+		// Verification de parler
+		minus.parler("Bonjour tout le monde !");
+		
+		// Verification de recevoir coup
+		minus.recevoirCoup(7);
 		
 	}
 

@@ -27,29 +27,36 @@ public class Gaulois {
 
 	// Methode pour frapper un ennemi
 	public void frapper(Romain romain) {
+		
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		romain.recevoirCoup(force / 3);
+		romain.recevoirCoup(force / 3 * effetPotion );
 	}
-	private char[] recevoirCoup() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
 	}
+	
+	public void boirePotion(int forcePotion) {
+		effetPotion = forcePotion;
+		parler("Merci Druide, je sens que ma force est "+ forcePotion + " fois decuplée");
+		
+	}
 
+	
 	public static void main(String[] args) {
 		// Verification de prendreParole
 		Gaulois asterix = new Gaulois("Astérix", 8);
-		System.out.println(asterix.prendreParole());
+		System.out.println(asterix);
 
 		// Verification de parler
 		asterix.parler("Bonjour tout le monde !");
-
+		
+		
 		// Verification de frapper
-		asterix.frapper("un romain");
+		Romain minus = new Romain("Minus", 5);
+		
 
 	}
 
