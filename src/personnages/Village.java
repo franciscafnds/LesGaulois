@@ -2,6 +2,7 @@
 package personnages;
 
 public class Village {
+
 	private String nom;
 	private Chef chef;
 	private Gaulois[] villageois;
@@ -15,6 +16,10 @@ public class Village {
 	public String getNom() {
 		return nom;
 	}
+	public Chef getChef() {
+		return chef;
+	}
+
 	
 	public void ajouterHabitant(Gaulois gaulois) {
 		villageois[nbVillageois]=gaulois;
@@ -29,6 +34,13 @@ public class Village {
 		this.chef = chef;
 	}
 	
+	public void afficherVillageois() {
+		System.out.println("Dans le " + getNom() + " du chef " + getChef() + " vivent les légendaires gaulois :");
+		for (int i=0; i<nbVillageois;i++) {
+			System.out.println("-" + villageois[i]);
+		}
+	}
+	
 	public static void main(String[] args) {
 		Village village = new Village("Village des Irréductibles",30);
 		//Gaulois gaulois = village.trouverHabitant(30);
@@ -40,6 +52,10 @@ public class Village {
 		//Gaulois gaulois = village.trouverHabitant(1);
 		//System.out.println(gaulois);
 		//e) asterix est assigné à villageois[0], villageois[1] est donc vide ce qui explique le null
+		Gaulois obelix = new Gaulois("Obélix",25);
+		village.ajouterHabitant(obelix);
+		village.afficherVillageois();
+		
 	}
 
 
