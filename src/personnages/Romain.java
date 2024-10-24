@@ -27,7 +27,7 @@ public class Romain {
 		int forceSur = force;
 		force -= forceCoup;
 		assert forcePositif();
-		if (force > 0) {
+		if (force > 0) {  
 			parler("Aie");
 		} else {
 			parler("J'abandonne...");
