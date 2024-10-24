@@ -35,12 +35,33 @@ public class Romain {
 		assert force< forceSur;
 
 	}
+
 	
-	public boolean forcePositif() {
+	private boolean forcePositif() {
 		return force >=0;
 	}
 	
-	
+	public void sEquiper(Equipement equipement) {
+		switch (nbEquipement) {
+		case 2:
+		System.out.println("Le soldat " + nom + " est déjà bien protégé !");
+		break;
+		case 1 :
+			if (equipements[0] == equipement) {
+				System.out.println("Le soldat " + nom + " possède déjà "+equipement + " !");
+			}else {
+				equipements[1] = equipement ;
+				nbEquipement ++;
+				System.out.println("Le soldat " + nom + " s'équipe avec un " + equipement + ".");
+			}
+			break;
+		default :
+			equipements[0] = equipement ;
+			nbEquipement ++;
+			System.out.println("Le soldat " + nom + " s'équipe avec un " + equipement + ".");
+			break;
+		}
+	}
 	
 	
 	@Override
@@ -59,7 +80,11 @@ public class Romain {
 		
 		// Verification de recevoir coup
 		minus.recevoirCoup(7);
-		
+		// Verification equipement
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
 		
 	}
 
